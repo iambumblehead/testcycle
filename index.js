@@ -1,5 +1,5 @@
 // Filename: index.js  
-// Timestamp: 2016.01.30-22:16:54 (last modified)
+// Timestamp: 2016.01.30-22:37:57 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>  
 
 import fs from 'fs';
@@ -55,6 +55,14 @@ const main = ({ DOM }) => ({ DOM: mvi(DOM) });
 const DOM = makeHTMLDriver();
 
 router.get('/checkbox', (req, res, next) => {
+  run(main, { DOM }).sources.DOM.forEach(ssr => {
+    fs.readFile('./src/html/index.html', 'utf-8', function (err, content) {
+      res.end(content);
+    });
+  }, next);
+});
+
+router.get('/http', (req, res, next) => {
   run(main, { DOM }).sources.DOM.forEach(ssr => {
     fs.readFile('./src/html/index.html', 'utf-8', function (err, content) {
       res.end(content);
