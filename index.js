@@ -1,5 +1,5 @@
 // Filename: index.js  
-// Timestamp: 2016.01.31-01:19:15 (last modified)
+// Timestamp: 2016.02.01-13:24:08 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>  
 
 import fs from 'fs';
@@ -80,8 +80,6 @@ router.get('/mvi', (req, res, next) => {
 
 router.get('/', (req, res, next) => {
   run(main, { DOM }).sources.DOM.forEach(ssr => {
-    console.log('ssr is', ssr);
-    console.log('DOM is', DOM);      
     res.end(template({ ssr }));
   }, next);
 });

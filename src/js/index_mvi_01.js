@@ -1,5 +1,5 @@
 // Filename: index_mvi_01.js  
-// Timestamp: 2016.01.31-01:22:46 (last modified)
+// Timestamp: 2016.02.01-12:31:24 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
  import Cycle from '@cycle/core';
@@ -48,10 +48,11 @@ function view(state$) {
   return state$.map(({weight, height, bmi}) => div([
     renderWeightSlider(weight),
     renderHeightSlider(height),
-    h2('BMI is ' + bmi)
+    h2('BMI is s' + bmi)
   ]));
 }
 
+// dom is pattern
 function main({DOM}) {
   const actions = intent(DOM);
   const state$ = model(actions);
